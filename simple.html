@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ценоразпис на продукти</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      scroll-padding-top: 80px; /* adjust based on your navbar height */
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-size: 18px;
+      background-color: #f8f9fa;
+      position: relative;
+    }
+    .section-title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .product-card {
+      border: 2px solid #ccc;
+      border-radius: 15px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      background-color: #fff;
+    }
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      color: green;
+    }
+    .thumbs {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      justify-content: center;
+    }
+    .thumbs img, .thumbs video {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .thumbs img.active, .thumbs video.active {
+      border-color: #007bff;
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+      top: auto;
+      bottom: -45px;
+      width: auto;
+      height: 40px;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: #000;
+      border-radius: 50%;
+    }
+    .scroll-arrow {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      font-size: 40px;
+      color: #007bff;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body class="container py-4">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top mb-4 shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Ценоразпис на продукти</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Превключи навигация">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#section-brooder">Единичен брудер</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#section-triple">Троен брудер</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#section-electronics">Електроника</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#section-quail">Пъдпъдъци</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#section-chickens">Кокошки</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#section-peeler">Белачка</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="section-title" id="section-brooder">🟦 Единичен брудер</div>
+
+  <div class="product-card">
+    <h2>Обикновен</h2>
+    <p><strong>Размери:</strong> 96 х 60 х 33 см</p>
+    <p>Теромопанели, твърд под, горен капак, фасунги и кабели</p>
+    <div class="price">200 лв.</div>
+  </div>
+
+  <div class="product-card">
+    <h2>Лукс</h2>
+    <p><strong>Размери:</strong> 96 х 60 х 43 см</p>
+    <p>Подвижен под, PVC тавичка, фасунги, кабели</p>
+    <div id="carouselLux" class="carousel slide mb-2" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="podvigen-lux.jpg" class="d-block w-100" alt="Лукс">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselLux" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselLux" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+    <div class="thumbs">
+      <img src="podvigen-lux.jpg" alt="Лукс" onclick="setActiveSlide('carouselLux', 0)">
+    </div>
+    <div class="price">280 лв.</div>
+  </div>
+
+  <div class="section-title" id="section-triple">🟩 Троен брудер с крака</div>
+  <div class="product-card">
+    <h2>Обикновен с неподвижни подове</h2>
+    <p><strong>Размери:</strong> 150 х 100 х 50 см (3 х 40 + 30 см крака)</p>
+    <p>PVC стени, мрежа отпред, неподвижни подове, фасунги, PVC тавички</p>
+    <div class="price">350 лв.</div>
+  </div>
+  <div class="product-card">
+    <h2>Обикновен с подвижни подове</h2>
+    <p><strong>Размери:</strong> 150 х 100 х 50 см (3 х 40 + 30 см крака)</p>
+    <p>PVC стени, мрежа отпред, подвижни подове, фасунги, PVC тавички</p>
+    <div class="price">400 лв.</div>
+  </div>
+  <div class="product-card">
+    <h2>Лукс с неподвижни подове</h2>
+    <p><strong>Размери:</strong> 150 х 100 х 50 см (3 х 40 + 30 см крака)</p>
+    <p>Термопанели, мрежа отпред, неподвижни подове, фасунги, PVC тавички</p>
+    <div class="price">450 лв.</div>
+  </div>
+  <div class="product-card">
+    <h2>Лукс с подвижни подове</h2>
+    <p><strong>Размери:</strong> 150 х 100 х 50 см (3 етажа + 30 см крака)</p>
+    <p>Термопанели, подвижни подове, фасунги, PVC тавички</p>
+    <div id="carouselTripleLux" class="carousel slide mb-2" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="triple-lux-thermo.jpg" class="d-block w-100" alt="Троен лукс">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselTripleLux" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselTripleLux" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+    <div class="thumbs">
+      <img src="triple-lux-thermo.jpg" alt="Троен лукс" onclick="setActiveSlide('carouselTripleLux', 0)">
+    </div>
+    <div class="price">500 лв.</div>
+  </div>
+
+  <div class="section-title" id="section-electronics">⚡ Електроника</div>
+  <div class="product-card">
+    <h2>Единично термореле</h2>
+    <p>Реле, контакт, захранващ кабел. Монтирано и готово за експлоатация.</p>
+    <div class="price">50 лв.</div>
+  </div>
+  <div class="product-card">
+    <h2>Двойно термореле</h2>
+    <p>Реле, контакти, захранващ кабел. Монтирано и готово за експлоатация.</p>
+    <div class="price">80 лв.</div>
+  </div>
+  <div class="product-card">
+    <h2>Комбинирано реле за температура и влага</h2>
+    <p>Реле, контакти, захранващ кабел. Монтирано и готово за експлоатация.</p>
+    <div class="price">80 лв.</div>
+  </div>
+  <div class="product-card">
+    <h2>Комплект вентилация</h2>
+    <p>Вентилатор с адаптер. Монтирани и готови за експлоатация.</p>
+    <div class="price">40 лв.</div>
+  </div>
+
+  <div class="section-title" id="section-quail">🟨 Клетки за пъдпъдъци</div>
+  <div class="product-card">
+    <h2>Единична клетка</h2>
+    <p><strong>Размери:</strong> 100 х 63 х 40 см | <strong>Полезна площ:</strong> 95 х 55 см | <strong>Крака:</strong> няма</p>
+    <div class="price">140 лв.</div>
+  </div>
+  <div class="product-card">
+    <h2>Двойна клетка</h2>
+    <p><strong>Размери:</strong> 100 х 63 х 80 см | <strong>Полезна площ:</strong> 95 х 55 см | <strong>Крака:</strong> няма</p>
+    <div class="price">260 лв.</div>
+  </div>
+  <div class="product-card">
+    <h2>Двойна с крака</h2>
+    <p><strong>Размери:</strong> 100 х 63 х 120 см | <strong>Полезна площ:</strong> 95 х 55 см | <strong>Крака:</strong> 40 см</p>
+    <div class="price">270 лв.</div>
+  </div>
+  <div class="product-card">
+    <h2>Тройна с крака</h2>
+    <p><strong>Размери:</strong> 100 х 63 х 150 см | <strong>Полезна площ:</strong> 95 х 55 см | <strong>Крака:</strong> 30 см</p>
+    <div class="price">380 лв.</div>
+  </div>
+  <div class="product-card">
+    <h2>Четворна с крака</h2>
+    <p><strong>Размери:</strong> 100 х 63 х 180 см | <strong>Полезна площ:</strong> 95 х 55 см | <strong>Крака:</strong> 30 см</p>
+    <div class="price">490 лв.</div>
+  </div>
+
+  <div class="section-title" id="section-chickens">🟥 Клетки за кокошки</div>
+  <div class="product-card">
+    <h2>Единична клетка</h2>
+    <p><strong>Размери:</strong> 95 х 68 х 55 см | <strong>Полезна площ:</strong> 90 х 60 см | <strong>Крака:</strong> няма</p>
+    <div class="price">140 лв.</div>
+  </div>
+  <div class="product-card">
+    <h2>Двойна клетка</h2>
+    <p><strong>Размери:</strong> 95 х 68 х 110 см | <strong>Полезна площ:</strong> 90 х 60 см | <strong>Крака:</strong> няма</p>
+    <div class="price">280 лв.</div>
+  </div>
+  <div class="product-card">
+    <h2>Двойна с крака</h2>
+    <p><strong>Размери:</strong> 95 х 68 х 150 см | <strong>Полезна площ:</strong> 90 х 60 см | <strong>Крака:</strong> 40 см</p>
+    <div class="price">290 лв.</div>
+  </div>
+  <div class="product-card">
+    <h2>Тройна с крака</h2>
+    <p><strong>Размери:</strong> 95 х 68 х 180 см | <strong>Полезна площ:</strong> 90 х 60 см | <strong>Крака:</strong> 30 см</p>
+    <div class="price">400 лв.</div>
+  </div>
+
+  <div class="section-title" id="section-peeler">🟥 Машина за белене</div>
+  <div class="product-card">
+    <h2>Полуавтоматична белачка за пъдпъдъчи яйца</h2>
+    <p><strong>Капацитет:</strong> 22 кг/ч | 220V | 18W</p>
+    <div id="carouselBelachka" class="carousel slide mb-2" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="belachka1.png" class="d-block w-100" alt="Белачка">
+        </div>
+        <div class="carousel-item">
+          <img src="belachka2.png" class="d-block w-100" alt="Белачка 2">
+        </div>
+        <div class="carousel-item">
+          <video class="d-block w-100" controls>
+            <source src="belachka1.mp4" type="video/mp4">
+            Вашият браузър не поддържа видео.
+          </video>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselBelachka" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselBelachka" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+    <div class="thumbs">
+      <img src="belachka1.png" alt="thumb1" onclick="setActiveSlide('carouselBelachka', 0)">
+      <img src="belachka2.png" alt="thumb2" onclick="setActiveSlide('carouselBelachka', 1)">
+      <video onclick="setActiveSlide('carouselBelachka', 2)">
+        <source src="belachka1.mp4" type="video/mp4">
+      </video>
+    </div><br>
+    <div class="accordion mb-3" id="peelerAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="peelerHeading">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#peelerCollapse"
+            aria-expanded="false" aria-controls="peelerCollapse">
+            Подробности за употреба и предимства
+          </button>
+        </h2>
+        <div id="peelerCollapse" class="accordion-collapse collapse" aria-labelledby="peelerHeading" data-bs-parent="#peelerAccordion">
+          <div class="accordion-body">
+            <h5>Указания за употреба:</h5>
+            <ul>
+              <li>Пресните пъдпъдъчи яйца, оставени за 2-3 дни (лято) или 3-4 дни (зима), са най-подходящи.</li>
+              <li>Накиснете яйцата в студена вода.</li>
+              <li>При завиране на водата – поставете яйцата, завъртете ги равномерно за ~5 минути на силен огън, след това 5 минути на слаб огън.</li>
+              <li>Извадете яйцата и ги охладете веднага в студена вода.</li>
+              <li>Обвивката трябва да се разклати добре; използването на дробилка подобрява резултата.</li>
+              <li>Накиснете яйцата още 5–10 минути преди обелване.</li>
+              <li>Поставете яйцата върху машината и леко потупайте с пръсти.</li>
+            </ul>
+
+            <h5 class="mt-4">Резюме за потенциални клиенти:</h5>
+            <p>Представяме ви иновативна автоматична машина за варене и обелване на яйца – идеалното решение за професионални кухни, ресторанти и хранителни индустрии, които търсят ефективност и високо качество на продукцията.</p>
+
+            <h6>Основни характеристики:</h6>
+            <ul>
+              <li><strong>Висока ефективност:</strong> Спестява време и труд.</li>
+              <li><strong>Иновативен дизайн:</strong> Специализирани кошници и система за разклащане.</li>
+              <li><strong>Лесна употреба:</strong> Интуитивна и безопасна за експлоатация.</li>
+              <li><strong>Подходяща за различни яйца:</strong> Оптимизирана за пъдпъдъчи, с възможност за адаптация.</li>
+              <li><strong>Здрава конструкция:</strong> Висококачествени материали, устойчива във времето.</li>
+            </ul>
+
+            <h6>Предимства:</h6>
+            <ul>
+              <li><strong>Автоматизация:</strong> Улеснява производствения процес.</li>
+              <li><strong>Минимални загуби:</strong> Прецизна технология за обелване.</li>
+              <li><strong>Сигурност:</strong> Безопасна работа при спазване на указанията.</li>
+              <li><strong>Интеграция:</strong> Лесно вписване в съществуващи производствени линии.</li>
+            </ul>
+
+            <p class="mt-3">Този продукт е отличен избор за всеки, който иска да постигне бързина, прецизност и високо качество при обработката на яйца, като същевременно намали разходите за труд и повиши производствената ефективност.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="price">280 лв.</div>
+  </div>
+
+  <!-- Scroll arrow -->
+  <div class="scroll-arrow">↓</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function setActiveSlide(carouselId, index) {
+      const carousel = document.querySelector(`#${carouselId} .carousel-inner`);
+      if (!carousel) return;
+      const items = carousel.querySelectorAll('.carousel-item');
+      items.forEach((item, i) => {
+        item.classList.remove('active');
+        if (i === index) item.classList.add('active');
+      });
+    }
+  </script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navbarCollapse = document.getElementById("navbarNav");
+    const navLinks = navbarCollapse.querySelectorAll(".nav-link");
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+        if (bsCollapse) {
+          bsCollapse.hide();
+        }
+      });
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.carousel').forEach(carousel => {
+      const bsCarousel = bootstrap.Carousel.getOrCreateInstance(carousel);
+      const items = carousel.querySelectorAll('.carousel-item');
+
+      items.forEach((item, index) => {
+        const video = item.querySelector('video');
+        if (video) {
+          // Pause autoplay when sliding to video
+          carousel.addEventListener('slide.bs.carousel', function (e) {
+            if (e.to === index) {
+              bsCarousel.pause();
+            }
+          });
+
+          // Pause when user starts playing
+          video.addEventListener('play', () => {
+            bsCarousel.pause();
+          });
+
+          // Resume autoplay after video ends
+          video.addEventListener('ended', () => {
+            bsCarousel.cycle();
+          });
+        }
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
