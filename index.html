@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="bg">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +11,7 @@
     html {
       scroll-behavior: smooth;
     }
-    
+
     body {
       font-size: 18px;
       background-color: #f8f9fa;
@@ -23,17 +24,19 @@
       margin: 0 0 !important;
     }
 
-    /*body.container.py-4, */#category-grid, #category-grid>.container {
+    /*body.container.py-4, */
+    #category-grid,
+    #category-grid>.container {
       padding: 0 0 !important;
       margin: 0 0 !important;
     }
 
-    #category-grid>.container>.row>.col-6.col-md-4 {
+    #category-grid>.container>.row>.col-4.col-md-4 {
       padding: 1px 1px !important;
       margin: 0 0 !important;
     }
-    
-    #category-grid>.container>.row>.col-6.col-md-4>a {
+
+    #category-grid>.container>.row>.col-4.col-md-4>a {
       border: 5px solid white;
       border-radius: 36px;
     }
@@ -42,12 +45,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 33vh;
+      height: 33.33vh;
       text-decoration: none;
       background-size: cover;
       background-position: center;
       color: white;
-      font-size: 1.25rem;
+      font-size: 1rem;
       font-weight: bold;
       border-radius: 10px;
       position: relative;
@@ -55,6 +58,12 @@
       transition: transform 0.3s ease;
       text-align: center;
       padding: 0 0 !important;
+    }
+
+    @media (min-width: 768px) {
+      .category-tile {
+        font-size: 1.25rem;
+      }
     }
 
     .category-tile::after {
@@ -69,7 +78,7 @@
     .category-tile.light-0::after {
       background: rgba(0, 0, 0, 0.2);
     }
-    
+
     .category-tile.light-1::after {
       background: rgba(0, 0, 0, 0.3);
     }
@@ -88,12 +97,19 @@
       padding: 0 10px;
     }
 
+    .carousel-image-content {
+      width: 100%;
+      height: 800px;
+      object-fit: contain;
+    }
+
     .section-title {
       font-size: 28px;
       font-weight: bold;
       margin-top: 2rem;
       text-align: center;
     }
+
     .product-card {
       border: 2px solid #ccc;
       border-radius: 15px;
@@ -101,27 +117,34 @@
       margin-bottom: 2rem;
       background-color: #fff;
     }
+
     .price {
       font-size: 22px;
       font-weight: bold;
       color: green;
     }
+
     .thumbs {
       display: flex;
       gap: 10px;
       margin-top: 10px;
       justify-content: center;
     }
-    .thumbs img, .thumbs video {
+
+    .thumbs img,
+    .thumbs video {
       width: 80px;
       height: 60px;
       object-fit: cover;
       cursor: pointer;
       border: 2px solid transparent;
     }
-    .thumbs img.active, .thumbs video.active {
+
+    .thumbs img.active,
+    .thumbs video.active {
       border-color: #007bff;
     }
+
     .carousel-control-prev,
     .carousel-control-next {
       top: auto;
@@ -129,11 +152,13 @@
       width: auto;
       height: 40px;
     }
+
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
       background-color: #000;
       border-radius: 50%;
     }
+
     .scroll-arrow {
       position: fixed;
       bottom: 10px;
@@ -144,15 +169,135 @@
       cursor: pointer;
       z-index: 1000;
     }
+
     .product-card {
       border: 3px solid #aaa !important;
     }
+
+    @media screen and (max-width: 768px) {
+      .gallery-modal-info {}
+
+      .gallery-unit-parent {
+        width: 45%;
+      }
+
+      .gallery-unit {
+        height: 120px;
+      }
+    }
+
+    @media screen and (min-width: 769px) {
+      .gallery-modal-info {
+        font-size: 1.5em !important;
+      }
+
+      .gallery-unit-parent {
+        width: 25%;
+      }
+
+      .gallery-unit {
+        height: auto;
+      }
+    }
+
+    .gallery-unit {
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 8px;
+    }
+
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Modal styles */
+    .gallery-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      overflow: auto;
+    }
+
+    .gallery-modal-content {
+      position: relative;
+      margin: auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 1200px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gallery-modal-image {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 5px solid white;
+    }
+
+    .gallery-modal-info {
+      width: 100%;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: black;
+      font-size: 18px;
+      text-align: center;
+      max-width: 800px;
+      line-height: 1.6;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      margin: 0px;
+    }
+
+    .gallery-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s;
+      z-index: 10000;
+    }
+
+    .gallery-modal-close:hover,
+    .gallery-modal-close:focus {
+      color: #bbb;
+    }
+
+    .gallery-unit {
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-unit:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
   </style>
 </head>
+
 <body class="container">
   <!--
   <div class="scroll-arrow">↓</div>
@@ -161,34 +306,51 @@
     <div class="container">
       <div class="row">
         <!-- Repeat this col for each category -->
-        <div class="col-6 col-md-4">
+        <div class="col-4 col-md-4">
           <a href="#section-brooder" class="category-tile light-0" style="background-image: url('podvigen-lux.jpg');">
             <span>Единичен брудер</span>
           </a>
         </div>
-        <div class="col-6 col-md-4">
-          <a href="#section-triple" class="category-tile light-1" style="background-image: url('triple-lux-thermo.jpg');">
+        <div class="col-4 col-md-4">
+          <a href="#section-triple" class="category-tile light-1"
+            style="background-image: url('triple-lux-thermo.jpg');">
             <span>Троен брудер</span>
           </a>
         </div>
-        <div class="col-6 col-md-4">
-          <a href="#section-electronics" class="category-tile light-2" style="background-image: url('electronics.jpg');">
+        <div class="col-4 col-md-4">
+          <a href="#section-electronics" class="category-tile light-2"
+            style="background-image: url('electronics.jpg');">
             <span>Електроника</span>
           </a>
         </div>
-        <div class="col-6 col-md-4">
+        <div class="col-4 col-md-4">
           <a href="#section-quail" class="category-tile" style="background-image: url('single-quil-1.jpg');">
             <span>Клетки за пъдпъдъци</span>
           </a>
         </div>
-        <div class="col-6 col-md-4">
+        <div class="col-4 col-md-4">
           <a href="#section-chickens" class="category-tile" style="background-image: url('chicken-2.jpg');">
-            <span>Клетки за кокошки<br><br><br></span>
+            <span>Клетки за кокошки</span>
           </a>
         </div>
-        <div class="col-6 col-md-4">
+        <div class="col-4 col-md-4">
           <a href="#section-peeler" class="category-tile light-3" style="background-image: url('belachka1.png');">
             <span>Белачка</span>
+          </a>
+        </div>
+        <div class="col-4 col-md-4">
+          <a href="#section-quail-animals" class="category-tile" style="background-image: url('single-quil-1.jpg');">
+            <span>Пъдпъдъци</span>
+          </a>
+        </div>
+        <div class="col-4 col-md-4">
+          <a href="#section-toki-animals" class="category-tile light-3" style="background-image: url('belachka1.png');">
+            <span>Токачки</span>
+          </a>
+        </div>
+        <div class="col-4 col-md-4">
+          <a href="#section-chicken-animals" class="category-tile" style="background-image: url('chicken-2.jpg');">
+            <span>Кокошки</span>
           </a>
         </div>
       </div>
@@ -211,7 +373,7 @@
     <div id="carouselLux" class="carousel slide mb-2" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="podvigen-lux.jpg" class="d-block w-100" alt="Лукс">
+          <img src="podvigen-lux.jpg" class="d-block carousel-image-content" alt="Лукс">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselLux" data-bs-slide="prev">
@@ -253,7 +415,7 @@
     <div id="carouselTripleLux" class="carousel slide mb-2" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="triple-lux-thermo.jpg" class="d-block w-100" alt="Троен лукс">
+          <img src="triple-lux-thermo.jpg" class="d-block carousel-image-content" alt="Троен лукс">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselTripleLux" data-bs-slide="prev">
@@ -276,7 +438,7 @@
     <div id="carouselElec" class="carousel slide mb-2" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="electronics.jpg" class="d-block w-100" alt="Лукс">
+          <img src="electronics.jpg" class="d-block carousel-image-content" alt="Лукс">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselElec" data-bs-slide="prev">
@@ -294,10 +456,10 @@
   <div class="product-card">
     <h2>Двойно термореле</h2>
     <p>Реле, контакти, захранващ кабел. Монтирано и готово за експлоатация.</p>
-        <div id="carouselElec" class="carousel slide mb-2" data-bs-ride="carousel">
+    <div id="carouselElec" class="carousel slide mb-2" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="electronics.jpg" class="d-block w-100" alt="Лукс">
+          <img src="electronics.jpg" class="d-block carousel-image-content" alt="Лукс">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselElec" data-bs-slide="prev">
@@ -315,10 +477,10 @@
   <div class="product-card">
     <h2>Комбинирано реле за температура и влага</h2>
     <p>Реле, контакти, захранващ кабел. Монтирано и готово за експлоатация.</p>
-        <div id="carouselElec" class="carousel slide mb-2" data-bs-ride="carousel">
+    <div id="carouselElec" class="carousel slide mb-2" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="electronics.jpg" class="d-block w-100" alt="Лукс">
+          <img src="electronics.jpg" class="d-block carousel-image-content" alt="Лукс">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselElec" data-bs-slide="prev">
@@ -339,7 +501,7 @@
     <div id="carouselElec" class="carousel slide mb-2" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="electronics.jpg" class="d-block w-100" alt="Лукс">
+          <img src="electronics.jpg" class="d-block carousel-image-content" alt="Лукс">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselElec" data-bs-slide="prev">
@@ -358,20 +520,21 @@
   <div class="section-title" id="section-quail">🟨 Клетки за пъдпъдъци</div>
   <div class="product-card">
     <h2>Единична клетка</h2>
-    <p><strong>Размери:</strong> 100 х 63 х 40 см | <strong>Полезна площ:</strong> 95 х 55 см | <strong>Крака:</strong> няма</p>
+    <p><strong>Размери:</strong> 100 х 63 х 40 см | <strong>Полезна площ:</strong> 95 х 55 см | <strong>Крака:</strong>
+      няма</p>
     <div id="carouselSingleQuail" class="carousel slide mb-2" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="single-quil-1.jpg" class="d-block w-100" alt="Белачка 2">
+          <img src="single-quil-1.jpg" class="d-block carousel-image-content" alt="">
         </div>
         <div class="carousel-item">
-          <img src="single-quil-2.jpg" class="d-block w-100" alt="Белачка 2">
+          <img src="single-quil-2.jpg" class="d-block carousel-image-content" alt="">
         </div>
         <div class="carousel-item">
-          <img src="single-quil-3.jpg" class="d-block w-100" alt="Белачка 2">
+          <img src="single-quil-3.jpg" class="d-block carousel-image-content" alt="">
         </div>
         <div class="carousel-item">
-          <img src="single-quil-4.jpg" class="d-block w-100" alt="Белачка 2">
+          <img src="single-quil-4.jpg" class="d-block carousel-image-content" alt="">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselSingleQuail" data-bs-slide="prev">
@@ -391,14 +554,15 @@
   </div>
   <div class="product-card">
     <h2>Двойна клетка</h2>
-    <p><strong>Размери:</strong> 100 х 63 х 80 см | <strong>Полезна площ:</strong> 95 х 55 см | <strong>Крака:</strong> няма</p>
+    <p><strong>Размери:</strong> 100 х 63 х 80 см | <strong>Полезна площ:</strong> 95 х 55 см | <strong>Крака:</strong>
+      няма</p>
     <div id="carouseldouble-quil" class="carousel slide mb-2" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="double-quil-1.jpg" class="d-block w-100" alt="Белачка">
+          <img src="double-quil-1.jpg" class="d-block carousel-image-content" alt="Белачка">
         </div>
         <div class="carousel-item">
-          <img src="double-quil-2.jpg" class="d-block w-100" alt="Белачка 2">
+          <img src="double-quil-2.jpg" class="d-block carousel-image-content" alt="">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouseldouble-quil" data-bs-slide="prev">
@@ -416,30 +580,33 @@
   </div>
   <div class="product-card">
     <h2>Двойна с крака</h2>
-    <p><strong>Размери:</strong> 100 х 63 х 120 см | <strong>Полезна площ:</strong> 95 х 55 см | <strong>Крака:</strong> 40 см</p>
+    <p><strong>Размери:</strong> 100 х 63 х 120 см | <strong>Полезна площ:</strong> 95 х 55 см | <strong>Крака:</strong>
+      40 см</p>
     <div class="price">270 лв.</div>
   </div>
   <div class="product-card">
     <h2>Тройна с крака</h2>
-    <p><strong>Размери:</strong> 100 х 63 х 150 см | <strong>Полезна площ:</strong> 95 х 55 см | <strong>Крака:</strong> 30 см</p>
+    <p><strong>Размери:</strong> 100 х 63 х 150 см | <strong>Полезна площ:</strong> 95 х 55 см | <strong>Крака:</strong>
+      30 см</p>
     <div class="price">380 лв.</div>
   </div>
   <div class="product-card">
     <h2>Четворна с крака</h2>
-    <p><strong>Размери:</strong> 100 х 63 х 180 см | <strong>Полезна площ:</strong> 95 х 55 см | <strong>Крака:</strong> 30 см</p>
+    <p><strong>Размери:</strong> 100 х 63 х 180 см | <strong>Полезна площ:</strong> 95 х 55 см | <strong>Крака:</strong>
+      30 см</p>
     <div id="carouselQuadraQuail" class="carousel slide mb-2" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="quadra-quail-1.jpg" class="d-block w-100" alt="Белачка 2">
+          <img src="imgs/четворни.jpg" class="d-block carousel-image-content" alt="">
         </div>
         <div class="carousel-item">
-          <img src="quadra-quail-2.jpg" class="d-block w-100" alt="Белачка 2">
+          <img src="quadra-quail-1.jpg" class="d-block carousel-image-content" alt="">
         </div>
         <div class="carousel-item">
-          <img src="quadra-quail-3.jpg" class="d-block w-100" alt="Белачка 2">
+          <img src="quadra-quail-2.jpg" class="d-block carousel-image-content" alt="">
         </div>
         <div class="carousel-item">
-          <img src="quadra-quail.jpg" class="d-block w-100" alt="Белачка 2">
+          <img src="quadra-quail-3.jpg" class="d-block carousel-image-content" alt="">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselQuadraQuail" data-bs-slide="prev">
@@ -450,10 +617,10 @@
       </button>
     </div>
     <div class="thumbs">
-      <img src="quadra-quail-1.jpg" alt="thumb1" onclick="setActiveSlide('carouselQuadraQuail', 0)">
-      <img src="quadra-quail-2.jpg" alt="thumb1" onclick="setActiveSlide('carouselQuadraQuail', 1)">
-      <img src="quadra-quail-3.jpg" alt="thumb1" onclick="setActiveSlide('carouselQuadraQuail', 2)">
-      <img src="quadra-quail.jpg" alt="thumb1" onclick="setActiveSlide('carouselQuadraQuail', 3)">
+      <img src="imgs/четворни.jpg" alt="thumb1" onclick="setActiveSlide('carouselQuadraQuail', 0)">
+      <img src="quadra-quail-1.jpg" alt="thumb1" onclick="setActiveSlide('carouselQuadraQuail', 1)">
+      <img src="quadra-quail-2.jpg" alt="thumb1" onclick="setActiveSlide('carouselQuadraQuail', 2)">
+      <img src="quadra-quail-3.jpg" alt="thumb1" onclick="setActiveSlide('carouselQuadraQuail', 3)">
     </div><br>
     <div class="price">490 лв.</div>
   </div>
@@ -461,26 +628,39 @@
   <div class="section-title" id="section-chickens">🟥 Клетки за кокошки</div>
   <div class="product-card">
     <h2>Единична клетка</h2>
-    <p><strong>Размери:</strong> 95 х 68 х 55 см | <strong>Полезна площ:</strong> 90 х 60 см | <strong>Крака:</strong> няма</p>
+    <p><strong>Размери:</strong> 95 х 68 х 55 см | <strong>Полезна площ:</strong> 90 х 60 см | <strong>Крака:</strong>
+      няма</p>
     <div class="price">140 лв.</div>
   </div>
   <div class="product-card">
     <h2>Двойна клетка</h2>
-    <p><strong>Размери:</strong> 95 х 68 х 110 см | <strong>Полезна площ:</strong> 90 х 60 см | <strong>Крака:</strong> няма</p>
+    <p><strong>Размери:</strong> 95 х 68 х 110 см | <strong>Полезна площ:</strong> 90 х 60 см | <strong>Крака:</strong>
+      няма</p>
     <div class="price">280 лв.</div>
   </div>
   <div class="product-card">
     <h2>Двойна с крака</h2>
-    <p><strong>Размери:</strong> 95 х 68 х 150 см | <strong>Полезна площ:</strong> 90 х 60 см | <strong>Крака:</strong> 40 см</p>
+    <p><strong>Размери:</strong> 95 х 68 х 150 см | <strong>Полезна площ:</strong> 90 х 60 см | <strong>Крака:</strong>
+      40 см</p>
     <div class="price">290 лв.</div>
   </div>
   <div class="product-card">
     <h2>Тройна с крака</h2>
-    <p><strong>Размери:</strong> 95 х 68 х 180 см | <strong>Полезна площ:</strong> 90 х 60 см | <strong>Крака:</strong> 30 см</p>
+    <p><strong>Размери:</strong> 95 х 68 х 180 см | <strong>Полезна площ:</strong> 90 х 60 см | <strong>Крака:</strong>
+      30 см</p>
     <div id="carouselTripleChicken" class="carousel slide mb-2" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="triple-chicken.jpg" class="d-block w-100" alt="Белачка 2">
+          <img src="triple-chicken.jpg" class="d-block carousel-image-content" alt="">
+        </div>
+        <div class="carousel-item">
+          <img src="imgs/тройна клетка с крака за кокошки 2.jpg" class="d-block carousel-image-content" alt="">
+        </div>
+        <div class="carousel-item">
+          <img src="imgs/тройна клетка с крака за кокошки.jpg" class="d-block carousel-image-content" alt="">
+        </div>
+        <div class="carousel-item">
+          <img src="imgs/тройна с крака.jpg" class="d-block carousel-image-content" alt="">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselTripleChicken" data-bs-slide="prev">
@@ -492,6 +672,11 @@
     </div>
     <div class="thumbs">
       <img src="triple-chicken.jpg" alt="thumb1" onclick="setActiveSlide('carouselTripleChicken', 0)">
+      <img src="imgs/тройна клетка с крака за кокошки 2.jpg" alt="thumb1"
+        onclick="setActiveSlide('carouselTripleChicken', 1)">
+      <img src="imgs/тройна клетка с крака за кокошки.jpg" alt="thumb1"
+        onclick="setActiveSlide('carouselTripleChicken', 2)">
+      <img src="imgs/тройна с крака.jpg" alt="thumb1" onclick="setActiveSlide('carouselTripleChicken', 3)">
     </div><br>
     <div class="price">400 лв.</div>
   </div>
@@ -503,13 +688,13 @@
     <div id="carouselBelachka" class="carousel slide mb-2" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="belachka1.png" class="d-block w-100" alt="Белачка">
+          <img src="belachka1.png" class="d-block carousel-image-content" alt="Белачка">
         </div>
         <div class="carousel-item">
-          <img src="belachka2.png" class="d-block w-100" alt="Белачка 2">
+          <img src="belachka2.png" class="d-block carousel-image-content" alt="">
         </div>
         <div class="carousel-item">
-          <video class="d-block w-100" controls>
+          <video class="d-block carousel-image-content" controls>
             <source src="belachka1.mp4" type="video/mp4">
             Вашият браузър не поддържа видео.
           </video>
@@ -532,18 +717,20 @@
     <div class="accordion mb-3" id="peelerAccordion">
       <div class="accordion-item">
         <h2 class="accordion-header" id="peelerHeading">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#peelerCollapse"
-            aria-expanded="false" aria-controls="peelerCollapse">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#peelerCollapse" aria-expanded="false" aria-controls="peelerCollapse">
             Подробности за употреба и предимства
           </button>
         </h2>
-        <div id="peelerCollapse" class="accordion-collapse collapse" aria-labelledby="peelerHeading" data-bs-parent="#peelerAccordion">
+        <div id="peelerCollapse" class="accordion-collapse collapse" aria-labelledby="peelerHeading"
+          data-bs-parent="#peelerAccordion">
           <div class="accordion-body">
             <h5>Указания за употреба:</h5>
             <ul>
               <li>Пресните пъдпъдъчи яйца, оставени за 2-3 дни (лято) или 3-4 дни (зима), са най-подходящи.</li>
               <li>Накиснете яйцата в студена вода.</li>
-              <li>При завиране на водата – поставете яйцата, завъртете ги равномерно за ~5 минути на силен огън, след това 5 минути на слаб огън.</li>
+              <li>При завиране на водата – поставете яйцата, завъртете ги равномерно за ~5 минути на силен огън, след
+                това 5 минути на слаб огън.</li>
               <li>Извадете яйцата и ги охладете веднага в студена вода.</li>
               <li>Обвивката трябва да се разклати добре; използването на дробилка подобрява резултата.</li>
               <li>Накиснете яйцата още 5–10 минути преди обелване.</li>
@@ -551,14 +738,17 @@
             </ul>
 
             <h5 class="mt-4">Резюме за потенциални клиенти:</h5>
-            <p>Представяме ви иновативна автоматична машина за варене и обелване на яйца – идеалното решение за професионални кухни, ресторанти и хранителни индустрии, които търсят ефективност и високо качество на продукцията.</p>
+            <p>Представяме ви иновативна автоматична машина за варене и обелване на яйца – идеалното решение за
+              професионални кухни, ресторанти и хранителни индустрии, които търсят ефективност и високо качество на
+              продукцията.</p>
 
             <h6>Основни характеристики:</h6>
             <ul>
               <li><strong>Висока ефективност:</strong> Спестява време и труд.</li>
               <li><strong>Иновативен дизайн:</strong> Специализирани кошници и система за разклащане.</li>
               <li><strong>Лесна употреба:</strong> Интуитивна и безопасна за експлоатация.</li>
-              <li><strong>Подходяща за различни яйца:</strong> Оптимизирана за пъдпъдъчи, с възможност за адаптация.</li>
+              <li><strong>Подходяща за различни яйца:</strong> Оптимизирана за пъдпъдъчи, с възможност за адаптация.
+              </li>
               <li><strong>Здрава конструкция:</strong> Висококачествени материали, устойчива във времето.</li>
             </ul>
 
@@ -570,13 +760,126 @@
               <li><strong>Интеграция:</strong> Лесно вписване в съществуващи производствени линии.</li>
             </ul>
 
-            <p class="mt-3">Този продукт е отличен избор за всеки, който иска да постигне бързина, прецизност и високо качество при обработката на яйца, като същевременно намали разходите за труд и повиши производствената ефективност.</p>
+            <p class="mt-3">Този продукт е отличен избор за всеки, който иска да постигне бързина, прецизност и високо
+              качество при обработката на яйца, като същевременно намали разходите за труд и повиши производствената
+              ефективност.</p>
           </div>
         </div>
       </div>
     </div>
 
     <div class="price">280 лв.</div>
+  </div>
+
+
+  <div class="section-title" id="section-quail-animals">🟥 Пъдпъдъци</div>
+  <div class="product-card row">
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък8.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Фараон, златист манджурски, смокингов (пингвин), бял английски, черен английски"> </div>
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък11.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък12.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък19.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък3.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Бял английски с малки"> </div>
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък20.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Бял английски"> </div>
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък18.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Черен английски"> </div>
+
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък5.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Златист манджурски"> </div>
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък15.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Фараон с малки"> </div>
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък2.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Фараон"> </div>
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък17.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Фараон"> </div>
+
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък7.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Фараон"> </div>
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък6.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Фараон"> </div>
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък4.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък13.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък16.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък1.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък9.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък10.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/пъдпъдък14.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+  </div>
+
+  <div class="section-title" id="section-toki-animals">🟥 Токачки</div>
+  <div class="product-card row">
+    <div class="gallery-unit-parent"><img src="imgs/токачки6.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Перлена и бяла токачки">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/токачки1.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Перлени токачки">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/токачки7.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Перлени токачки">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/токачки10.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Перлени токачки">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/токачки8.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Бели токачки">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/токачки4.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Бели токачки">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/токачки2.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Перлени токачки">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/токачки3.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Перлени токачки">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/токачки9.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Перлени токачки">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/токачки5.jpg" class="img-fluid gallery-unit p-1"
+        data-info="Перлени токачки">
+    </div>
+  </div>
+
+
+  <div class="section-title" id="section-chicken-animals">🟥 Кокошки</div>
+  <div class="product-card row">
+    <div class="gallery-unit-parent"><img src="imgs/кошки10.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/кошки3.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/кошки4.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/кошки7.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/кошки5.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/кошки9.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+    <div class="gallery-unit-parent"><img src="imgs/кошки1.jpg" class="img-fluid gallery-unit p-1" data-info="">
+    </div>
+  </div>
+
+  <!-- Gallery Modal -->
+  <div id="galleryModal" class="gallery-modal">
+    <span class="gallery-modal-close">&times;</span>
+    <div class="gallery-modal-content">
+      <div id="modalInfo" class="gallery-modal-info"></div> <br>
+      <img id="modalImage" class="gallery-modal-image" src="" alt="">
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -592,50 +895,105 @@
     }
   </script>
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const navbarCollapse = document.getElementById("navbarNav");
-    const navLinks = navbarCollapse.querySelectorAll(".nav-link");
+    document.addEventListener("DOMContentLoaded", function () {
+      const navbarCollapse = document.getElementById("navbarNav");
+      const navLinks = navbarCollapse.querySelectorAll(".nav-link");
 
-    navLinks.forEach(link => {
-      link.addEventListener("click", () => {
-        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-        if (bsCollapse) {
-          bsCollapse.hide();
-        }
+      navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+          if (bsCollapse) {
+            bsCollapse.hide();
+          }
+        });
       });
     });
-  });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('.carousel').forEach(carousel => {
-      const bsCarousel = bootstrap.Carousel.getOrCreateInstance(carousel);
-      const items = carousel.querySelectorAll('.carousel-item');
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('.carousel').forEach(carousel => {
+        const bsCarousel = bootstrap.Carousel.getOrCreateInstance(carousel);
+        const items = carousel.querySelectorAll('.carousel-item');
 
-      items.forEach((item, index) => {
-        const video = item.querySelector('video');
-        if (video) {
-          // Pause autoplay when sliding to video
-          carousel.addEventListener('slide.bs.carousel', function (e) {
-            if (e.to === index) {
+        items.forEach((item, index) => {
+          const video = item.querySelector('video');
+          if (video) {
+            // Pause autoplay when sliding to video
+            carousel.addEventListener('slide.bs.carousel', function (e) {
+              if (e.to === index) {
+                bsCarousel.pause();
+              }
+            });
+
+            // Pause when user starts playing
+            video.addEventListener('play', () => {
               bsCarousel.pause();
-            }
-          });
+            });
 
-          // Pause when user starts playing
-          video.addEventListener('play', () => {
-            bsCarousel.pause();
-          });
+            // Resume autoplay after video ends
+            video.addEventListener('ended', () => {
+              bsCarousel.cycle();
+            });
+          }
+        });
+      });
+    });
+  </script>
 
-          // Resume autoplay after video ends
-          video.addEventListener('ended', () => {
-            bsCarousel.cycle();
-          });
+  <script>
+    // Gallery modal functionality
+    document.addEventListener("DOMContentLoaded", function () {
+      const modal = document.getElementById('galleryModal');
+      const modalImage = document.getElementById('modalImage');
+      const modalInfo = document.getElementById('modalInfo');
+      const closeBtn = document.querySelector('.gallery-modal-close');
+      const galleryImages = document.querySelectorAll('.gallery-unit');
+
+      // Add click event to all gallery images
+      galleryImages.forEach(img => {
+        img.addEventListener('click', function () {
+          modal.style.display = 'block';
+          modalImage.src = this.src;
+          modalImage.alt = this.alt;
+
+          // Get custom info from data-info attribute
+          const info = this.getAttribute('data-info') || '';
+          if (info === '') {
+            modalInfo.style.display = 'none';
+          } else {
+            modalInfo.style.display = 'block';
+          }
+          modalInfo.textContent = info;
+
+          // Prevent body scroll when modal is open
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      // Close modal when clicking the X button
+      closeBtn.addEventListener('click', function () {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      });
+
+      // Close modal when clicking outside the image
+      modal.addEventListener('click', function (event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && modal.style.display === 'block') {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
         }
       });
     });
-  });
-</script>
+  </script>
 
 </body>
+
 </html>
